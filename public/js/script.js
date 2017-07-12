@@ -2,11 +2,9 @@
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 //display the alphabet on the page
 for (var i = 0; i < alphabet.length; i++) {
-    $('#buttons-for-letters').append('<button>'+alphabet[i]+'</button>');
+    $('#buttons-for-letters').append('<button class="btn btn-info">'+ alphabet[i]+'</button>');
 };
 //create button for each letter
-
-
 
 //WHEN I clicks on a letter
 //THEN I see the letters grey out
