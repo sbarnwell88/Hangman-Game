@@ -21,16 +21,26 @@ var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWords = wordBank[randomNumber].split('');
 var emptySpacesForDashes = [];
 //make dashes equal the number of letters in words
+//find the length of the letters in the random words
 for (var i = 0; i < randomWords.length; i++) {
+    //push _ for every letter
     emptySpacesForDashes.push('_ ');
 }
 $('#underscore').append(emptySpacesForDashes);
 
+//if letter clicked equals to letter in random word
+function letterMatched(letterClicked) {
+for (var i = 0; i < randomWords.length; i++) {
+    if (letterClicked === randomWords[i]) {
+    emptySpacesForDashes[i] = letterClicked;
+    }
+}
+$('#underscore').text(emptySpacesForDashes.join(' '));
+};
+letterMatched('a');
 
-
-//create a for loop that makes each letter equal the number of lines
-
-
+//letter will show in corresponding line space
+//letter is greyed out
 
 //WHEN I click on a correct letter
 //THEN I see the letter appear on the line
