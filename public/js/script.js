@@ -19,11 +19,17 @@ var wordBank = ['David', 'Jace', 'Richard'];
 //split every word inside the array
 var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWords = wordBank[randomNumber].split('');
+var emptySpacesForDashes = [];
+//make dashes equal the number of letters in words
+for (var i = 0; i < randomWords.length; i++) {
+    emptySpacesForDashes.push('_ ');
+}
+$('#underscore').append(emptySpacesForDashes);
 
-console.log(randomWords);
-//create for loop that puts each letter inside of a div 
-//create a bottom border for each div
-//create word bank
+
+
+//create a for loop that makes each letter equal the number of lines
+
 
 
 //WHEN I click on a correct letter
