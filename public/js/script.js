@@ -1,8 +1,9 @@
+$(function(){
 //create a container with the alphabet
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 //display the alphabet on the page
 for (var i = 0; i < alphabet.length; i++) {
-    $('#buttons-for-letters').append('<div class="btn btn-info">'+ alphabet[i]+'</div>');
+    $('#buttons-for-letters').append('<div class="btn btn-info letters">'+ alphabet[i]+'</div>');
 };
 //create button for each letter
 
@@ -28,8 +29,10 @@ for (var i = 0; i < randomWords.length; i++) {
 }
 $('#underscore').append(emptySpacesForDashes);
 
+
+var letterClicked;
 //if letter clicked equals to letter in random word
-function letterMatched(letterClicked) {
+function letterMatched() {
 for (var i = 0; i < randomWords.length; i++) {
     if (letterClicked === randomWords[i]) {
     emptySpacesForDashes[i] = letterClicked;
@@ -37,7 +40,6 @@ for (var i = 0; i < randomWords.length; i++) {
 }
 $('#underscore').text(emptySpacesForDashes.join(' '));
 };
-letterMatched('a');
 
 //letter will show in corresponding line space
 //letter is greyed out
@@ -60,6 +62,10 @@ letterMatched('a');
 //WHEN I'm finished playing a game
 //THEN I can click on "play again"
 
-$(function(){
+$('.letters').on('click', function(event) {
+    letterClicked = $(event.currentTarget).text();
+    letterMatched();
+});
+
     
 });
