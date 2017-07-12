@@ -2,17 +2,27 @@
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 //display the alphabet on the page
 for (var i = 0; i < alphabet.length; i++) {
-    $('#buttons-for-letters').append('<button class="btn btn-info">'+ alphabet[i]+'</button>');
+    $('#buttons-for-letters').append('<div class="btn btn-info">'+ alphabet[i]+'</div>');
 };
 //create button for each letter
 
-//WHEN I clicks on a letter
+//WHEN I click on a letter
 //THEN I see the letters grey out
 
 //WHEN I click on the instruction buttons
 //THEN a widow pops up where I can read the instructions of the game
 
 //create lines that match the length of the word
+//create an array for the word bank
+var wordBank = ['David', 'Jace', 'Richard'];
+//pick random words
+//split every word inside the array
+var randomNumber = Math.floor(wordBank.length * Math.random());
+var randomWords = wordBank[randomNumber].split('');
+
+console.log(randomWords);
+//create for loop that puts each letter inside of a div 
+//create a bottom border for each div
 //create word bank
 
 
