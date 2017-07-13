@@ -30,12 +30,15 @@ function letterMatched() {
     } 
 };
 
+function updateLives(){
+    $('#number-of-lives').html('number of lives: ' + numberOfLives);
+}
 //if incorrect letter clicked, number of lives goes down
 function incorrectLetter() {
     if (randomWholeWords.indexOf(letterClicked) === (-1)) {
             numberOfLives -=1;
-        }
-        $('#number-of-lives').html('number of lives: ' + numberOfLives);
+            updateLives();
+     }   
         $(event.currentTarget).off('click');
     };
 
@@ -51,7 +54,10 @@ function winOrLose() {
 }
 function resetButton() {
     $('.letters').removeAttr('style');
-    numberOfLives = 7;
+    emptySpacesForDashes = [];
+    numberOfLives = 6;
+    updateLives();
+
 }
 
 //WHEN I'm finished playing a game
@@ -65,6 +71,7 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
     incorrectLetter();
+    updateLives();
     winOrLose();
 });
 //makes letters clicked change colors
@@ -73,9 +80,7 @@ $('.letters').on('click', function(event) {
     letterMatched();
 });
 $('#reset').on('click', function (event) {
-    resetButton();
-    //make letters turn blue
-    
+    resetButton();    
     //restore number of tries
     
     //place new empty underscores
