@@ -15,7 +15,7 @@ for (var i = 0; i < alphabet.length; i++) {
 
 //create lines that match the length of the word
 //create an array for the word bank
-var wordBank = ['David', 'Jace', 'Richard'];
+var wordBank = ['david', 'jace', 'richard'];
 //pick random words
 //split every word inside the array
 var randomNumber = Math.floor(wordBank.length * Math.random());
@@ -66,6 +66,11 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
 });
+
+$('.letters').on('click', function(event) {
+    letterClicked = $(event.currentTarget).css('background-color', 'green');
+    letterMatched();
+})
 
     
 });
