@@ -7,9 +7,6 @@ for (var i = 0; i < alphabet.length; i++) {
 };
 //create button for each letter
 
-//WHEN I click on a letter
-//THEN I see the letters grey out
-
 //WHEN I click on the instruction buttons
 //THEN a widow pops up where I can read the instructions of the game
 
@@ -31,23 +28,32 @@ $('#underscore').append(emptySpacesForDashes);
 
 
 var letterClicked;
+//determine the number of lives
+var numberOfLives = 7;
+
 //if letter clicked equals to letter in random word
 function letterMatched() {
 for (var i = 0; i < randomWords.length; i++) {
     if (letterClicked === randomWords[i]) {
     emptySpacesForDashes[i] = letterClicked;
     }
-}
 $('#underscore').text(emptySpacesForDashes.join(' '));
+}
+};
+function incorrectLetter() {
+if (!(letterClicked === randomWords[i])) {
+    numberOfLives -= 1;
+    console.log(numberOfLives);
+}
+$('#number-of-lives').html('number of lives: ' + numberOfLives);
 };
 
-//letter will show in corresponding line space
-//letter is greyed out
+//function that updates the number of lives on screen
 
-//WHEN I click on a correct letter
-//THEN I see the letter appear on the line
 
 //WHEN I click on the incorrect letter
+//if the number of attempts is less than the # of lives
+//and the guess is incorrect
 //THEN I see the "number of lives" go down
 
 //WHEN I guess a letter
@@ -62,15 +68,21 @@ $('#underscore').text(emptySpacesForDashes.join(' '));
 //WHEN I'm finished playing a game
 //THEN I can click on "play again"
 
+//makes letters clicked appear on the page
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
+    incorrectLetter();
 });
-
+//makes letters clicked change colors
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
-})
-
+});
+// $('.letters').on('click', function(event) {
+//     if (letterClicked !== randomWords;
+//     numberOfLives -= 1;
+// }
+// $('#number-of-lives').html('number of lives: ' + numberOfLives);
     
 });
