@@ -6,11 +6,6 @@ for (var i = 0; i < alphabet.length; i++) {
     $('#buttons-for-letters').append('<div class="btn btn-info letters">'+ alphabet[i]+'</div>');
 };
 
-//WHEN I click on the instruction buttons
-//THEN a widow pops up where I can read the instructions of the game
-
-//create lines that match the length of the word
-//create an array for the word bank
 var wordBank = ['david', 'jace', 'richard'];
 //split every word inside the array
 var randomNumber = Math.floor(wordBank.length * Math.random());
@@ -27,10 +22,10 @@ $('#underscore').append(emptySpacesForDashes);
 
 
 var letterClicked;
-//determine the number of lives
+
 var numberOfLives = 7;
 
-//if letter clicked equals to letter in random word
+//push underscore that matches length of word
 function letterMatched() {
     for (var i = 0; i < randomWords.length; i++) {
         if (letterClicked === randomWords[i]) {
@@ -40,19 +35,24 @@ function letterMatched() {
     $('#underscore').text(emptySpacesForDashes.join(' '));
     } 
 };
+
+//if incorrect letter clicked, number of lives goes down
 function incorrectLetter() {
     if (randomWholeWords.indexOf(letterClicked) === (-1)) {
             numberOfLives -=1;
         }
+        $('#number-of-lives').html('number of lives: ' + numberOfLives); 
+    };
 
-    $('#number-of-lives').html('number of lives: ' + numberOfLives);
-};
+function winOrLose() {
+    if (numberOfLives < 1) {
+        $('#number-of-lives').html('Game Over!');
+    }
+}
+            
+            
 
 
-//if the letter is clicked and matches
-//the letter appears on the screen
-//if it doesn't match
-//it counts down the number of lives
 //if the number of lives is less than 1
 //show "Game Over"
 //if the whole word is guesses AND there are lives left
@@ -75,11 +75,15 @@ function incorrectLetter() {
 //WHEN I'm finished playing a game
 //THEN I can click on "play again"
 
+//WHEN I click on the instruction buttons
+//THEN a widow pops up where I can read the instructions of the game
+
 //makes letters clicked appear on the page
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
     incorrectLetter();
+    winOrLose();
 });
 //makes letters clicked change colors
 $('.letters').on('click', function(event) {
