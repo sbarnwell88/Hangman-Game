@@ -43,29 +43,28 @@ function incorrectLetter() {
     };
 
 function winOrLose() {
-    if (numberOfLives < 1) {
+    if (emptySpacesForDashes.indexOf('_ ') === -1) {
+        $('#number-of-lives').html('You win!');
+        $('.letters').off('click');
+    }
+    if (numberOfLives === 0) {
         //how do I stop the game?
         $('#number-of-lives').html('Game Over!');
         $('.letters').off('click');
-    }
-    if (emptySpacesForDashes === 0 && numberOfLives > 0) {
-        $('#number-of-lives').html('You Win!');
-    }
+    } 
+    
+    // else if (randomWords.join('') === randomWholeWords && numberOfLives > 0) {
+    //     $('#number-of-lives').html('You win!');
+    // }   
 }
-            
-//if the whole word is guesses AND there are lives left
+
+//get reset button
+//letters get erased
+//number of lives goes back to 7
+         
+//if the whole word is guessed AND there are lives left
 //show "You win"
-
-//WHEN I click on the incorrect letter
-//if the number of attempts is less than the # of lives
-//and the guess is incorrect
-//THEN I see the "number of lives" go down
-
-//WHEN I guess a letter
-//THEN I see the number of attempts I have left
-
-//WHEN I guess the last correct letter
-//THEN I see "You Win!"
+//if there are not more letters left && lives > 0
 
 //WHEN I make my last attempt
 //THEN display "You lose. Try again"
