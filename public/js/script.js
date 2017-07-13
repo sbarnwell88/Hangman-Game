@@ -41,6 +41,7 @@ function incorrectLetter() {
             numberOfLives -=1;
         }
         $('#number-of-lives').html('number of lives: ' + numberOfLives);
+        $(event.currentTarget).off('click');
     };
 
 function winOrLose() {
