@@ -1,11 +1,10 @@
 $(function(){
-//create a container with the alphabet
+
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-//display the alphabet on the page
+
 for (var i = 0; i < alphabet.length; i++) {
     $('#buttons-for-letters').append('<div class="btn btn-info letters">'+ alphabet[i]+'</div>');
 };
-//create button for each letter
 
 //WHEN I click on the instruction buttons
 //THEN a widow pops up where I can read the instructions of the game
@@ -13,15 +12,15 @@ for (var i = 0; i < alphabet.length; i++) {
 //create lines that match the length of the word
 //create an array for the word bank
 var wordBank = ['david', 'jace', 'richard'];
-//pick random words
 //split every word inside the array
 var randomNumber = Math.floor(wordBank.length * Math.random());
-var randomWords = wordBank[randomNumber].split('');
+var randomWholeWords = wordBank[randomNumber];
+var randomWords = randomWholeWords.split('');
 var emptySpacesForDashes = [];
 //make dashes equal the number of letters in words
 //find the length of the letters in the random words
 for (var i = 0; i < randomWords.length; i++) {
-    //push _ for every letter
+    //push _ for every letter to match the length of the word
     emptySpacesForDashes.push('_ ');
 }
 $('#underscore').append(emptySpacesForDashes);
@@ -33,23 +32,31 @@ var numberOfLives = 7;
 
 //if letter clicked equals to letter in random word
 function letterMatched() {
-for (var i = 0; i < randomWords.length; i++) {
-    if (letterClicked === randomWords[i]) {
-    emptySpacesForDashes[i] = letterClicked;
-    }
-$('#underscore').text(emptySpacesForDashes.join(' '));
-}
+    for (var i = 0; i < randomWords.length; i++) {
+        if (letterClicked === randomWords[i]) {
+        emptySpacesForDashes[i] = letterClicked;
+        }
+
+    $('#underscore').text(emptySpacesForDashes.join(' '));
+    } 
 };
 function incorrectLetter() {
-if (!(letterClicked === randomWords[i])) {
-    numberOfLives -= 1;
-    console.log(numberOfLives);
-}
-$('#number-of-lives').html('number of lives: ' + numberOfLives);
+    if (randomWholeWords.indexOf(letterClicked) === (-1)) {
+            numberOfLives -=1;
+        }
+
+    $('#number-of-lives').html('number of lives: ' + numberOfLives);
 };
 
-//function that updates the number of lives on screen
 
+//if the letter is clicked and matches
+//the letter appears on the screen
+//if it doesn't match
+//it counts down the number of lives
+//if the number of lives is less than 1
+//show "Game Over"
+//if the whole word is guesses AND there are lives left
+//show "You win"
 
 //WHEN I click on the incorrect letter
 //if the number of attempts is less than the # of lives
@@ -79,10 +86,6 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
 });
-// $('.letters').on('click', function(event) {
-//     if (letterClicked !== randomWords;
-//     numberOfLives -= 1;
-// }
-// $('#number-of-lives').html('number of lives: ' + numberOfLives);
+
     
 });
