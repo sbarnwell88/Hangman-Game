@@ -7,23 +7,18 @@ for (var i = 0; i < alphabet.length; i++) {
 };
 
 var wordBank = ['david', 'jace', 'richard'];
-//split every word inside the array
 var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWholeWords = wordBank[randomNumber];
 var randomWords = randomWholeWords.split('');
 var emptySpacesForDashes = [];
 var reset = $('#reset').append('<div class="btn btn-info">' + "Play Again" + '</div');
-//make dashes equal the number of letters in words
-//find the length of the letters in the random words
+var letterClicked;
+var numberOfLives = 6;
+
 for (var i = 0; i < randomWords.length; i++) {
-    //push _ for every letter to match the length of the word
     emptySpacesForDashes.push('_ ');
 }
 $('#underscore').append(emptySpacesForDashes);
-
-var letterClicked;
-
-var numberOfLives = 6;
 
 //push underscore that matches length of word
 function letterMatched() {
@@ -54,24 +49,10 @@ function winOrLose() {
         $('.letters').off('click');
     }   
 }
-
 function resetButton() {
-    $('#reset').on('click', function (event) {
-        emptySpacesForDashes = [];
-        numberOfLives= 6;
-    })
+    $('.letters').removeAttr('style');
+    numberOfLives = 7;
 }
-
-//get reset button
-//letters get erased
-//number of lives goes back to 7
-         
-//if the whole word is guessed AND there are lives left
-//show "You win"
-//if there are not more letters left && lives > 0
-
-//WHEN I make my last attempt
-//THEN display "You lose. Try again"
 
 //WHEN I'm finished playing a game
 //THEN I can click on "play again"
@@ -91,5 +72,14 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
 });
+$('#reset').on('click', function (event) {
+    resetButton();
+    //make letters turn blue
+    
+    //restore number of tries
+    
+    //place new empty underscores
+})
+
     
 });
