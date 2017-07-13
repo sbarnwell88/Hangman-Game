@@ -20,7 +20,6 @@ for (var i = 0; i < randomWords.length; i++) {
 }
 $('#underscore').append(emptySpacesForDashes);
 
-
 var letterClicked;
 
 var numberOfLives = 7;
@@ -31,7 +30,6 @@ function letterMatched() {
         if (letterClicked === randomWords[i]) {
         emptySpacesForDashes[i] = letterClicked;
         }
-
     $('#underscore').text(emptySpacesForDashes.join(' '));
     } 
 };
@@ -41,20 +39,20 @@ function incorrectLetter() {
     if (randomWholeWords.indexOf(letterClicked) === (-1)) {
             numberOfLives -=1;
         }
-        $('#number-of-lives').html('number of lives: ' + numberOfLives); 
+        $('#number-of-lives').html('number of lives: ' + numberOfLives);
     };
 
 function winOrLose() {
     if (numberOfLives < 1) {
+        //how do I stop the game?
         $('#number-of-lives').html('Game Over!');
+        $('.letters').off('click');
+    }
+    if (emptySpacesForDashes === 0 && numberOfLives > 0) {
+        $('#number-of-lives').html('You Win!');
     }
 }
             
-            
-
-
-//if the number of lives is less than 1
-//show "Game Over"
 //if the whole word is guesses AND there are lives left
 //show "You win"
 
@@ -90,6 +88,5 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
 });
-
     
 });
