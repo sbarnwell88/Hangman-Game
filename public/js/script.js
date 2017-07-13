@@ -12,6 +12,7 @@ var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWholeWords = wordBank[randomNumber];
 var randomWords = randomWholeWords.split('');
 var emptySpacesForDashes = [];
+var reset = $('#reset').append('<div class="btn btn-info">' + "Play Again" + '</div');
 //make dashes equal the number of letters in words
 //find the length of the letters in the random words
 for (var i = 0; i < randomWords.length; i++) {
@@ -22,7 +23,7 @@ $('#underscore').append(emptySpacesForDashes);
 
 var letterClicked;
 
-var numberOfLives = 7;
+var numberOfLives = 6;
 
 //push underscore that matches length of word
 function letterMatched() {
@@ -48,14 +49,16 @@ function winOrLose() {
         $('.letters').off('click');
     }
     if (numberOfLives === 0) {
-        //how do I stop the game?
         $('#number-of-lives').html('Game Over!');
         $('.letters').off('click');
-    } 
-    
-    // else if (randomWords.join('') === randomWholeWords && numberOfLives > 0) {
-    //     $('#number-of-lives').html('You win!');
-    // }   
+    }   
+}
+
+function resetButton() {
+    $('#reset').on('click', function (event) {
+        emptySpacesForDashes = [];
+        numberOfLives= 6;
+    })
 }
 
 //get reset button
