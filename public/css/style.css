@@ -74,6 +74,24 @@ h1 {
     margin-left: 0px;
     margin-top: 140px;
 }
+@media (max-width: 575px) { 
+    .letters {
+        font-size: 10px;
+        padding: 8px;
+    }
+    #buttons-for-letters {
+        margin: 0px;
+    }
+    #number-of-lives {
+        font-size: 15px;
+    }
+    #underscore {
+        font-size: 15px;
+    }
+    .reset {
+        font-size: 15px;
+    }
+}
 
 
 
