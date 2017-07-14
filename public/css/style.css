@@ -4,8 +4,36 @@
     align-items: flex-start;
     flex-wrap: wrap;
 }
-title {
-    text-align: center;
+h1 {
+    display: flex;
+    justify-content: center;
 }
-
+#buttons-for-letters {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+#base {
+    width: 200px;
+	height: 10px;
+    background: black;
+    display: flex;
+    align-items: flex-start
+}
+#base-long {
+    width: 10px;
+    height: 200px;
+    background: black;
+}
+#underscore {
+    display: flex;
+    justify-content: center;
+}
 
