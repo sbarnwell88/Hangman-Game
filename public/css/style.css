@@ -10,9 +10,15 @@ h1 {
 }
 #buttons-for-letters {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
     flex-wrap: wrap;
+    font-weight: bold;
+    margin: 10px;
+    justify-content: center;
+}
+.letters {
+    font-size: 20px;
+    margin: 10px;
+    padding: 20px;
 }
 .container2 {
     display: flex;
@@ -20,20 +26,44 @@ h1 {
     align-content: center;
     align-items: center;
 }
-#base {
-    width: 200px;
-	height: 10px;
-    background: black;
-    display: flex;
-    align-items: flex-start
-}
-#base-long {
-    width: 10px;
-    height: 200px;
-    background: black;
-}
 #underscore {
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
+#reset {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#number-of-lives {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#hangman-head {
+    margin-top: -135px;
+    margin-left: -70px;
+}
+#hangman-body {
+    margin-left: -25px;
+    margin-top: 2px;
+}
+#left-arm {
+    margin-left: -37px;
+    margin-top: -45px;
+}
+#right-arm {
+    margin-left: 6px;
+    margin-top: -45px;
+}
+#left-leg {
+    margin-left: -73px;
+    margin-top: 140px;
+}
+#right-leg {
+    margin-left: 0px;
+    margin-top: 140px;
+}
+
 
