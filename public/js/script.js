@@ -43,6 +43,10 @@ function incorrectLetter() {
 //make hangman disappear
 $('#hangman-head').css('visibility', 'hidden');
 $('#hangman-body').css('visibility', 'hidden');
+$('#left-arm').css('visibility', 'hidden');
+$('#right-arm').css('visibility', 'hidden');
+$('#left-leg').css('visibility', 'hidden');
+$('#right-leg').css('visibility', 'hidden');
 
 function winOrLose() {
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
