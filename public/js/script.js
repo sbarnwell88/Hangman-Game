@@ -40,7 +40,9 @@ function incorrectLetter() {
         $('#number-of-lives').html('number of lives: ' + numberOfLives);
         $(event.currentTarget).off('click');
     };
+//make hangman disappear
 $('#hangman-head').css('visibility', 'hidden');
+$('#hangman-body').css('visibility', 'hidden');
 
 function winOrLose() {
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
