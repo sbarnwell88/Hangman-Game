@@ -7,6 +7,8 @@
 h1 {
     display: flex;
     justify-content: center;
+    font-family: 'Shadows Into Light', 'cursive';
+    padding: 10px;
 }
 #buttons-for-letters {
     display: flex;
@@ -40,6 +42,13 @@ h1 {
     display: flex;
     justify-content: center;
     padding: 10px;
+    font-size: 30px;
+}
+#underscore {
+    font-size: 30px;
+}
+.reset {
+    font-size: 24px;
 }
 #hangman-head {
     margin-top: -135px;
@@ -65,5 +74,6 @@ h1 {
     margin-left: 0px;
     margin-top: 140px;
 }
+
 
 

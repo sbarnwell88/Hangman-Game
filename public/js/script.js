@@ -11,11 +11,10 @@ var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWholeWords = wordBank[randomNumber];
 var randomWords = randomWholeWords.split('');
 var emptySpacesForDashes = [];
-var reset = $('#reset').append('<div class="btn btn-info">' + "Play Again" + '</div');
+var reset = $('#reset').append('<div class="btn btn-info reset">' + "Play Again" + '</div');
 var letterClicked;
 var numberOfLives = 6;
 $('.hangman-whole-body').css('visibility', 'hidden');
-
 
 for (var i = 0; i < randomWords.length; i++) {
     emptySpacesForDashes.push('_ ');
