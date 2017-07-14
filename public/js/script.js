@@ -52,6 +52,9 @@ function winOrLose() {
     if (numberOfLives === 3) {
         $('#left-arm').css('visibility', 'visible');
     }
+    if (numberOfLives === 2) {
+        $('#right-arm').css('visibility', 'visible');
+    }
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
         $('#number-of-lives').html('You win!');
         $('.letters').off('click');
