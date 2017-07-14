@@ -15,10 +15,12 @@ var reset = $('#reset').append('<div class="btn btn-info">' + "Play Again" + '</
 var letterClicked;
 var numberOfLives = 6;
 
+
 for (var i = 0; i < randomWords.length; i++) {
     emptySpacesForDashes.push('_ ');
 }
 $('#underscore').append(emptySpacesForDashes);
+
 
 //push underscore that matches length of word
 function letterMatched() {
@@ -28,19 +30,17 @@ function letterMatched() {
         }
     $('#underscore').text(emptySpacesForDashes.join(' '));
     } 
-};
-
-function updateLives(){
-    $('#number-of-lives').html('number of lives: ' + numberOfLives);
 }
+
 //if incorrect letter clicked, number of lives goes down
 function incorrectLetter() {
     if (randomWholeWords.indexOf(letterClicked) === (-1)) {
             numberOfLives -=1;
-            updateLives();
-     }   
+     }  
+        $('#number-of-lives').html('number of lives: ' + numberOfLives);
         $(event.currentTarget).off('click');
     };
+    
 
 function winOrLose() {
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
@@ -53,15 +53,9 @@ function winOrLose() {
     }   
 }
 function resetButton() {
-    $('.letters').removeAttr('style');
-    emptySpacesForDashes = [];
-    numberOfLives = 6;
-    updateLives();
-
+    location.reload();
 }
 
-//WHEN I'm finished playing a game
-//THEN I can click on "play again"
 
 //WHEN I click on the instruction buttons
 //THEN a widow pops up where I can read the instructions of the game
@@ -71,7 +65,6 @@ $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
     incorrectLetter();
-    updateLives();
     winOrLose();
 });
 //makes letters clicked change colors
@@ -81,9 +74,6 @@ $('.letters').on('click', function(event) {
 });
 $('#reset').on('click', function (event) {
     resetButton();    
-    //restore number of tries
-    
-    //place new empty underscores
 })
 
     
