@@ -6,7 +6,7 @@ for (var i = 0; i < alphabet.length; i++) {
     $('#buttons-for-letters').append('<div class="btn btn-info letters">'+ alphabet[i]+'</div>');
 };
 
-var wordBank = ['david', 'jace', 'richard'];
+var wordBank = ['consider', 'minute', 'accord', 'evident', 'practice', 'intend', 'concern', 'commit', 'issue', 'approach', 'establish', 'utter', 'conduct', 'engage', 'obtain', 'scarce', 'policy', 'straight', 'stock', 'apparent', 'property', 'fancy', 'concept', 'court', 'appoint', 'passage', 'vain', 'instance', 'coast', 'project'];
 var randomNumber = Math.floor(wordBank.length * Math.random());
 var randomWholeWords = wordBank[randomNumber];
 var randomWords = randomWholeWords.split('');
