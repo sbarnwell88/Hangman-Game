@@ -47,7 +47,10 @@ function winOrLose() {
         $('#hangman-head').css('visibility', 'visible');
     }
     if (numberOfLives === 4) {
-    $('#hangman-body').css('visibility', 'visible');
+        $('#hangman-body').css('visibility', 'visible');
+    }
+    if (numberOfLives === 3) {
+        $('#left-arm').css('visibility', 'visible');
     }
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
         $('#number-of-lives').html('You win!');
