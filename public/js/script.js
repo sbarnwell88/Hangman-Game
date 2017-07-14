@@ -14,6 +14,7 @@ var emptySpacesForDashes = [];
 var reset = $('#reset').append('<div class="btn btn-info">' + "Play Again" + '</div');
 var letterClicked;
 var numberOfLives = 6;
+$('.hangman-whole-body').css('visibility', 'hidden');
 
 
 for (var i = 0; i < randomWords.length; i++) {
@@ -40,15 +41,14 @@ function incorrectLetter() {
         $('#number-of-lives').html('number of lives: ' + numberOfLives);
         $(event.currentTarget).off('click');
     };
-//make hangman disappear
-$('#hangman-head').css('visibility', 'hidden');
-$('#hangman-body').css('visibility', 'hidden');
-$('#left-arm').css('visibility', 'hidden');
-$('#right-arm').css('visibility', 'hidden');
-$('#left-leg').css('visibility', 'hidden');
-$('#right-leg').css('visibility', 'hidden');
 
 function winOrLose() {
+    if (numberOfLives === 5) {
+        $('#hangman-head').css('visibility', 'visible');
+    }
+    if (numberOfLives === 4) {
+    $('#hangman-body').css('visibility', 'visible');
+    }
     if (emptySpacesForDashes.indexOf('_ ') === -1) {
         $('#number-of-lives').html('You win!');
         $('.letters').off('click');
