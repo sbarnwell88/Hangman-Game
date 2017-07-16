@@ -21,7 +21,6 @@ for (var i = 0; i < randomWords.length; i++) {
 }
 $('#underscore').append(emptySpacesForDashes);
 
-
 //push underscore that matches length of word
 function letterMatched() {
     for (var i = 0; i < randomWords.length; i++) {
@@ -32,7 +31,6 @@ function letterMatched() {
     } 
 }
 
-//if incorrect letter clicked, number of lives goes down
 function incorrectLetter() {
     if (randomWholeWords.indexOf(letterClicked) === (-1)) {
             numberOfLives -=1;
@@ -65,17 +63,14 @@ function winOrLose() {
         $('#number-of-lives').html('Game Over!');
         $('#left-leg').css('visibility', 'visible');
         $('.letters').off('click');
+        $('#right-word').html('Correct Word: ' + randomWholeWords);
     }   
 }
+
 function resetButton() {
     location.reload();
 }
 
-
-//WHEN I click on the instruction buttons
-//THEN a widow pops up where I can read the instructions of the game
-
-//makes letters clicked appear on the page
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
     letterMatched();
