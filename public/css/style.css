@@ -92,6 +92,7 @@ h1 {
     .letters {
         font-size: 10px;
         padding: 5px;
+        margin: 3px;
     }
      #buttons-for-letters {
         margin: 0px; 
