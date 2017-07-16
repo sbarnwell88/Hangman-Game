@@ -27,6 +27,7 @@ Once players come to the site, they will see a keyboard on the page. Below the k
 * Play Again button
 * Correct word appears if user loses
 * Buttons change colors if clicked
+* Hint button displays how many vowels are in a word
 
 ## Future Developments
 
