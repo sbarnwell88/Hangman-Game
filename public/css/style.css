@@ -1,22 +1,8 @@
-.headers {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
 h1 {
     display: flex;
     justify-content: center;
     font-family: 'Shadows Into Light', 'cursive';
     padding: 10px;
-}
-.dropdown {
-    display: flex;
-    justify-content: center;
-}
-.dropdown-menu {
-    display: flex;
-    justify-content: center;
 }
 #buttons-for-letters {
     display: flex;
@@ -46,23 +32,18 @@ h1 {
     display: flex;
     justify-content: center;
     padding: 10px;
+    font-size: 30px;
 }
-#reset {
+#bottom-of-page {
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    justify-content: space-between;
+    font-size: 20px;
 }
 #number-of-lives {
     display: flex;
     justify-content: center;
     padding: 10px;
     font-size: 30px;
-}
-#underscore {
-    font-size: 30px;
-}
-.reset {
-    font-size: 24px;
 }
 #hangman-head {
     margin-top: -135px;
@@ -103,9 +84,6 @@ h1 {
     #underscore {
         font-size: 15px;
     }
-    .reset {
-        font-size: 15px;
-    }
     h1 {
         font-size: 15px;
     }
@@ -127,9 +105,6 @@ h1 {
     #underscore {
         font-size: 15px;
     }
-    .reset {
-        font-size: 15px;
-    }
     h1 {
         font-size: 20px;
     }
@@ -149,9 +124,6 @@ h1 {
         font-size: 15px;
     }
     #underscore {
-        font-size: 15px;
-    }
-    .reset {
         font-size: 15px;
     }
     h1 {

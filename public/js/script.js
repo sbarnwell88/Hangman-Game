@@ -15,13 +15,18 @@ var reset = $('#reset').append('<div class="btn btn-info reset">' + "Play Again"
 var letterClicked;
 var numberOfLives = 6;
 $('.hangman-whole-body').css('visibility', 'hidden');
+$('#hint').append('<div class="btn btn-info hint">' + "Hint" + '</div>');
+
 
 for (var i = 0; i < randomWords.length; i++) {
     emptySpacesForDashes.push('_ ');
 }
 $('#underscore').append(emptySpacesForDashes);
 
-//push underscore that matches length of word
+function vowelCount(randomWholeWords) { 
+  return randomWholeWords.replace(/[^aeiou]/g, "").length; 
+}
+
 function letterMatched() {
     for (var i = 0; i < randomWords.length; i++) {
         if (letterClicked === randomWords[i]) {
@@ -66,25 +71,23 @@ function winOrLose() {
         $('#right-word').html('Correct Word: ' + randomWholeWords);
     }   
 }
-
 function resetButton() {
     location.reload();
 }
 
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
+    letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
     incorrectLetter();
     winOrLose();
 });
-//makes letters clicked change colors
-$('.letters').on('click', function(event) {
-    letterClicked = $(event.currentTarget).css('background-color', 'green');
-    letterMatched();
-});
 $('#reset').on('click', function (event) {
     resetButton();    
 })
-
+$('.hint').on('click', function (event) {
+    $(event.target).html('There are vowels in ' + vowelCount(randomWholeWords) + ' spots!');
+    vowelCount(randomWholeWords);
+})
     
 });
