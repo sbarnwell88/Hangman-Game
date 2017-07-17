@@ -38,6 +38,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
+    padding: 10px;
 }
 #number-of-lives {
     display: flex;
@@ -68,6 +69,10 @@ h1 {
 #right-leg {
     margin-left: .5px;
     margin-top: 135px;
+}
+footer {
+    display: flex;
+    justify-content: center;
 }
 @media (max-width: 575px) { 
     .letters {
