@@ -23,10 +23,7 @@ for (var i = 0; i < randomWords.length; i++) {
 }
 $('#underscore').append(emptySpacesForDashes);
 
-function vowelCount(randomWholeWords) { 
-  return randomWholeWords.replace(/[^aeiou]/g, "").length; 
-}
-
+//push underscore that matches length of word
 function letterMatched() {
     for (var i = 0; i < randomWords.length; i++) {
         if (letterClicked === randomWords[i]) {
@@ -69,25 +66,34 @@ function winOrLose() {
         $('#left-leg').css('visibility', 'visible');
         $('.letters').off('click');
         $('#right-word').html('Correct Word: ' + randomWholeWords);
+        $('#right-word').html('Correct Word: ' + randomWholeWords);
     }   
 }
+function vowelCount(randomWholeWords) { 
+  return randomWholeWords.replace(/[^aeiou]/g, "").length; 
+}
+$('.hint').on('click', function (event) {
+    $(event.target).html('There are vowels in ' + vowelCount(randomWholeWords) + ' spots!');
+    vowelCount(randomWholeWords);
+})
+
 function resetButton() {
     location.reload();
 }
 
 $('.letters').on('click', function(event) {
     letterClicked = $(event.currentTarget).text();
-    letterClicked = $(event.currentTarget).css('background-color', 'green');
     letterMatched();
     incorrectLetter();
     winOrLose();
 });
+$('.letters').on('click', function(event) {
+    letterClicked = $(event.currentTarget).css('background-color', 'green');
+    letterMatched();
+});
 $('#reset').on('click', function (event) {
     resetButton();    
 })
-$('.hint').on('click', function (event) {
-    $(event.target).html('There are vowels in ' + vowelCount(randomWholeWords) + ' spots!');
-    vowelCount(randomWholeWords);
-})
+
     
 });
